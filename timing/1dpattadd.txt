@@ -1,0 +1,27 @@
+# 1dname     pattern.to.match         time.to.add
+  full_drop  (reward|neutral)\ (-1|0) 0
+  full_crct  (reward|neutral)\ 1      0
+  full_ercr  (reward|neutral)\ 2      0
+  ctch_long  Catch1                   0
+  ctch_shrt  Catch2                   0
+
+   cue_rwcr  (reward\ 1)|Catch        0     # includes all catches
+   cue_ntcr  (neutral\ 1)|Catch       0     
+  prep_rwcr  (reward\ 1)|Catch1       1.5   # includes only long catches
+  prep_ntcr  (neutral\ 1)|Catch1      1.5
+  resp_rwcr  reward\ 1                3     
+  resp_ntcr  neutral\ 1               3     
+
+   cue_rwec  reward\ 2                0     
+   cue_ntec  neutral\ 2               0     
+  prep_rwec  reward\ 2                1.5   
+  prep_ntec  neutral\ 2               1.5
+  resp_rwec  reward\ 2                3     
+  resp_ntec  neutral\ 2               3     
+
+   cue_rwdp  reward\ (-1|0)           0     
+   cue_ntdp  neutral\ (-1|0)          0     
+  prep_rwdp  reward\ (-1|0)           1.5   
+  prep_ntdp  neutral\ (-1|0)          1.5
+  resp_rwdp  reward\ (-1|0)           3     
+  resp_ntdp  neutral\ (-1|0)          3     
