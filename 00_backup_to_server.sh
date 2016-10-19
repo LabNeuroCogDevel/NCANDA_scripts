@@ -26,5 +26,10 @@ if [ ! -e /Volumes/ns1/MRIImages ]; then
 fi
 
 
-mkdir -p   /Volumes/ns1/PAARCProjects/SHARE/paulsen/
-rsync -avHS /Users/ncanda/Documents/Research/NCANDA /Volumes/ns1/PAARCProjects/SHARE/paulsen/
+# where are we backing up to
+backdir=/Volumes/ns1/DeptShare/PAARCProjects/SHARE/paulsen/
+# if it doesn't exist make it
+[ ! -d $backdir ] && mkdir -p $backdir  
+
+# copy
+rsync --size-only -avHS /Users/ncanda/Documents/Research/NCANDA $backdir

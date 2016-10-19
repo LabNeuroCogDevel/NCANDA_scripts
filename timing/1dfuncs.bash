@@ -1,6 +1,7 @@
 ##
 # functions for parsing 1d files. eg.
-#   epeye $s $yr $rn | timesof "$patt" $add
+#   epeye $s $yr $rn | timesof "$patt" 
+#   epeye A145 2 4   | timesof "neutral 1"
 ##
 
 # 20161005WF
@@ -18,7 +19,7 @@ epeye() {
  ep="txt/ep/onsets/${id}_${year}_$run.txt"
  ey=$(ls /Users/ncanda/Documents/Research/NCANDA/data_eye/$id/*y$year*run$run.trial.txt)
 
- # if niether file exist, its not a big deal
+ # if neither file exist, its not a big deal
  [ ! -r "$ep" -a ! -r "$ey" ] && return 0
  # if only one doesn't, it is a big deal
  for v in ep ey; do [ ! -r "${!v}" ] && echo "no $v file: ${!v}!" >&2 && return 1; done
