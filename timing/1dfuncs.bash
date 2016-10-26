@@ -16,7 +16,7 @@
 epeye() {
  read id year run < <(echo $@)
 
- ep="txt/ep/onsets/${id}_${year}_$run.txt"
+ ep="txt/ep/onsets_6/${id}_${year}_$run.txt"
  ey=$(ls /Users/ncanda/Documents/Research/NCANDA/data_eye/$id/*y$year*run$run.trial.txt)
 
  # if neither file exist, its not a big deal

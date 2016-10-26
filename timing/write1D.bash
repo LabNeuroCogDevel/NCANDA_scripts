@@ -14,7 +14,7 @@
 source 1dfuncs.bash
 
 
-for f in txt/ep/onsets/A*_[1-9]_[1-4].txt; do
+for f in txt/ep/onsets_6/A*_[1-9]_[1-4].txt; do
   ! [[ $f  =~ (A[0-9]{3})_([0-9])_(1-4]) ]] || continue
   # parse file for subj year and run
   read s yr rn < <(basename $f .txt | sed 's/_/ /g')
@@ -24,7 +24,7 @@ for f in txt/ep/onsets/A*_[1-9]_[1-4].txt; do
   [ -z "$ey" ] && continue
 
   # make sure we have output directory
-  dir=txt/1D/${s}_${yr}
+  dir=txt/1D_6/${s}_${yr}
   [ ! -d $dir ] && mkdir -p $dir
   
   # run epeye join + timesofplus pattern parse
