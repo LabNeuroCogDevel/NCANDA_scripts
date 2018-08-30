@@ -1,0 +1,13 @@
+# 1dname     pattern.to.match         time.to.add
+trial_rw_drop      reward[^C]*\ (-1|0)  0
+trial_rw_crct      reward[^C]*\ 1       0
+trial_rw_ercr      reward[^C]*\ 2       0
+
+trial_nt_drop      neutral[^C]*\ (-1|0) 0
+trial_nt_crct      neutral[^C]*\ 1      0
+trial_nt_ercr      neutral[^C]*\ 2      0
+
+trial_ctch_lng_nt  neutralCatch1       0
+trial_ctch_sht_nt  neutralCatch2       0
+trial_ctch_lng_rw  rewardCatch1        0
+trial_ctch_sht_rw  rewardCatch2        0
