@@ -13,6 +13,9 @@
 
 source 1dfuncs.bash
 
+pattfile=1dpatt_sepcatch.txt
+dirroot=txt/1D_cue
+
 
 for f in txt/ep/onsets_6/A*_[1-9]_[1-4].txt; do
   ! [[ $f  =~ (A[0-9]{3})_([0-9])_(1-4]) ]] || continue
@@ -24,13 +27,15 @@ for f in txt/ep/onsets_6/A*_[1-9]_[1-4].txt; do
   [ -z "$ey" ] && continue
 
   # make sure we have output directory
-  dir=txt/1D_6/${s}_${yr}
+  #dir=txt/1D_6/${s}_${yr}
+  dir=$dirroot/${s}_${yr}
   [ ! -d $dir ] && mkdir -p $dir
   
   # run epeye join + timesofplus pattern parse
   # for every pattern we want to parse in 1dpattadd
   echo ${dir}_$rn
-  sed 's/#.*//;/^\s*$/d' 1dpattadd.txt | while read type patt add; do
+  #sed 's/#.*//;/^\s*$/d' 1dpattadd.txt | while read type patt add; do
+  sed 's/#.*//;/^\s*$/d' $pattfile | while read type patt add; do
     of=$dir/$type.1D
     [ $rn -eq 1 -a -r "$of" ] && rm $of
     epeye $s $yr $rn | timesofplus "$patt" $add >> $of
