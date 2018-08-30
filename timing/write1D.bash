@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
-
+cd $(dirname $0)
 # 20161005 WF
 ##
 #  1. merge output of epTiming_all.bash with scored eyedata files
 #  2. parsing with patterns in 1dpattadd.txt
-#  3. saving to txt/1D/subj_year/event.1D
+#  3. saving to txt/1D_cue/subj_year/event.1D: txt/1D_cue/A*_[0-4]/*.1D
+#
+# # 20180830 AQ WF 
+# #  - can be run on rhea or ncanda (/Users/ncanda/Documents/Research/NCANDA/ exists on both)
+# #  - change dirroot to save old files -- but running at all maybe unnecessary: finished in 2016?
 ##
 
 ## MEAT OF CALL ##
@@ -14,11 +18,11 @@
 source 1dfuncs.bash
 
 pattfile=1dpatt_sepcatch.txt
-dirroot=txt/1D_cue
+dirroot=txt/1D_cue_20180830 # dir root changed as to not remove old files
 
 
 for f in txt/ep/onsets_6/A*_[1-9]_[1-4].txt; do
-  ! [[ $f  =~ (A[0-9]{3})_([0-9])_(1-4]) ]] || continue
+  ! [[ $f  =~ (A[0-9]{3})_([0-9])_([1-4]) ]] || continue
   # parse file for subj year and run
   read s yr rn < <(basename $f .txt | sed 's/_/ /g')
 
