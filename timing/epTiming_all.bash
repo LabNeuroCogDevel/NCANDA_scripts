@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+cd $(dirname $0)
 
 # get infom from
 # /Users/ncanda/Documents/Research/NCANDA/data_eye/A004/A004_y2_Eprime_run1.txt
